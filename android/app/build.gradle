@@ -76,8 +76,8 @@ android {
     ndkVersion rootProject.ext.ndkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
-
     namespace "com.nectarapp"
+
     defaultConfig {
         applicationId "com.nectarapp"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -85,6 +85,7 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
@@ -93,6 +94,7 @@ android {
             keyPassword 'android'
         }
     }
+    
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
@@ -110,6 +112,9 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+
+implementation project(':react-native-splash-screen')
+
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
