@@ -27,8 +27,13 @@ const SignupScreen: React.FC<SignupScreenProps> = ({ navigation }) => {
                         Email
                     </Text>
                     <TextInput
+                        placeholder="Enter password"
                         style={styles.inputField}
-                        placeholder='Enter Email'
+                        placeholderTextColor="#7C7C7C"
+                        secureTextEntry={true}
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        keyboardType="default"
                     />
                 </View>
                 <View>

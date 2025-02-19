@@ -28,10 +28,13 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
                         Password
                     </Text>
                     <TextInput
-                        placeholder='Enter password'
+                        placeholder="Enter password"
                         style={styles.inputField}
-                        placeholderTextColor={"#7C7C7C"}
-
+                        placeholderTextColor="#7C7C7C"
+                        secureTextEntry={true}
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        keyboardType="default"
                     />
                 </View>
             </View>
