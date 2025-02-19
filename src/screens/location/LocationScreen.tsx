@@ -7,16 +7,35 @@ import Map from "../../assets/svg/map.svg"
 import { Picker } from '@react-native-picker/picker'
 
 const LocationScreen: React.FC<LocationScreenProps> = ({ navigation }) => {
-
+    const zones = ["North Central", "North West", "North East", "South West", "South East", "South South"
+    ];
+    const areas = ["Port Harcourt GRA (Rivers)",
+        "Diobu (Rivers)",
+        "Warri (Delta)",
+        "Uyo (Akwa Ibom)",
+        "Calabar (Cross River)",
+        "Benin City (Edo)",
+        "Yenagoa (Bayelsa)",
+        "Ikeja (Lagos)",
+        "Victoria Island (Lagos)",
+        "Lekki (Lagos)",
+        "Ibadan North (Oyo)",
+        "Akure (Ondo)",
+        "Abeokuta (Ogun)",
+        "Oshogbo (Osun)",
+        "Ado-Ekiti (Ekiti)",
+        "Maiduguri (Borno)",
+        "Bauchi City (Bauchi)",
+        "Yola (Adamawa)",
+        "Jalingo (Taraba)",
+        "Gombe City (Gombe)",
+        "Damaturu (Yobe)"]
 
     return (
         <View style={styles.body}>
 
-            <TouchableOpacity style={styles.backBtn}
-                onPress={() => navigation.navigate('Signup')}
-            >
-                <ArrowBack />
-            </TouchableOpacity>
+            <ArrowBack hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }} style={styles.backBtn} onPress={() => navigation.goBack()} />
+
 
             <View style={styles.hero}>
                 <Map style={styles.map} />
@@ -33,27 +52,18 @@ const LocationScreen: React.FC<LocationScreenProps> = ({ navigation }) => {
             <View style={styles.selectSection}>
                 <View style={styles.selectContainer}>
                     <Text style={styles.label}>Your Zone</Text>
-                    <Picker style={styles.selectPicker} placeholder={"Select your Zone"} >
-                        <Picker.Item label='Java' value={"java"} />
-                        <Picker.Item label='John' value={"john"} />
-                        <Picker.Item label='John' value={"john"} />
-                        <Picker.Item label='John' value={"john"} />
-                        <Picker.Item label='John' value={"john"} />
-                        <Picker.Item label='John' value={"john"} />
-                        <Picker.Item label='John' value={"john"} />
+                    <Picker style={styles.selectPicker}  >
+                        <Picker.Item label={"select your zone"} value={""} />
+                        {zones.map((zone) => (<Picker.Item label={zone} value={zone} />))}
 
                     </Picker>
                 </View>
                 <View style={styles.selectContainer}>
                     <Text style={styles.label}>Your Area</Text>
                     <Picker style={styles.selectPicker} placeholder='Types of you area'>
-                        <Picker.Item label='Java' value={"java"} />
-                        <Picker.Item label='John' value={"john"} />
-                        <Picker.Item label='John' value={"john"} />
-                        <Picker.Item label='John' value={"john"} />
-                        <Picker.Item label='John' value={"john"} />
-                        <Picker.Item label='John' value={"john"} />
-                        <Picker.Item label='John' value={"john"} />
+                        <Picker.Item label={"select your Area"} value={""} />
+                        {areas.map((area) => (<Picker.Item label={area} value={area} />))}
+
 
                     </Picker>
                 </View>

@@ -11,11 +11,9 @@ const VerificationScreen: React.FC<VerficationScreenProps> = ({ navigation }) =>
     return (
         <View style={styles.body}>
 
-            <TouchableOpacity style={styles.backBtn}
-                onPress={() => navigation.navigate('Signup')}
-            >
-                <ArrowBack />
-            </TouchableOpacity>
+
+            <ArrowBack hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }} style={styles.backBtn} onPress={() => navigation.goBack()} />
+
 
             <View style={styles.main}>
                 <Text style={styles.mainTxt}>Enter your 4-digit code</Text>
@@ -30,6 +28,7 @@ const VerificationScreen: React.FC<VerficationScreenProps> = ({ navigation }) =>
                         keyboardType='numeric'
                         placeholder='xxxx'
                         style={styles.inputText}
+                        placeholderTextColor={"#7c7c7c"}
 
 
                     />
@@ -39,7 +38,7 @@ const VerificationScreen: React.FC<VerficationScreenProps> = ({ navigation }) =>
             </View>
             <View style={styles.navigateContainer}>
                 <TouchableOpacity>
-                    <Text>Resend Code</Text>
+                    <Text style={styles.txthightlight}>Resend Code</Text>
                 </TouchableOpacity>
 
                 <RoundBtn onPress={() => navigation.navigate("Location")} />
@@ -92,6 +91,10 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         flexDirection: "row"
+    },
+    txthightlight: {
+        color: "#53B175",
+        fontSize: 18
     }
 
 })

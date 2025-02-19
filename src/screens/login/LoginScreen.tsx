@@ -30,6 +30,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
                     <TextInput
                         placeholder='Enter password'
                         style={styles.inputField}
+                        placeholderTextColor={"#7C7C7C"}
 
                     />
                 </View>
@@ -39,11 +40,15 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
             <View style={styles.btnContainer}>
                 <Button
                     title={"Log in"}
-                    onPress={() => navigation.navigate("Signup")}
+
                 />
             </View>
             <Text style={styles.ctatxt}>
-                Don't have an account? Signup
+                Don't have an account? {" "}
+                <Text style={styles.txthighlight} onPress={() => navigation.replace("Signup")}>
+                    Signup
+                </Text>
+
             </Text>
 
         </SafeAreaView>
@@ -91,5 +96,8 @@ const styles = StyleSheet.create({
     ctatxt: {
         textAlign: "center",
         fontSize: 14
+    },
+    txthighlight: {
+        color: "#53B175"
     }
 })

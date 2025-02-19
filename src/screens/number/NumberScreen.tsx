@@ -10,11 +10,8 @@ const NumberScreen: React.FC<NumberScreenProps> = ({ navigation }) => {
     return (
         <View style={styles.body}>
 
-            <TouchableOpacity style={styles.backBtn}
-                onPress={() => navigation.navigate('Number')}
-            >
-                <ArrowBack />
-            </TouchableOpacity>
+            <ArrowBack hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }} style={styles.backBtn} onPress={() => navigation.goBack()} />
+
 
             <View style={styles.main}>
                 <Text style={styles.mainTxt}>Enter your mobile number</Text>
@@ -25,6 +22,7 @@ const NumberScreen: React.FC<NumberScreenProps> = ({ navigation }) => {
                     <PhoneInput
                         textContainerStyle={{ backgroundColor: "#fff" }}
                         defaultCode='NG'
+
                     />
 
                 </View>

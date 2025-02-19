@@ -2,8 +2,9 @@ import { SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react'
 import CarrotLogo from '../../assets/svg/orangecarrot.svg'
 import Button from '../../components/button/Button'
+import { SignupScreenProps } from '../../types/navigation'
 
-const SignupScreen = () => {
+const SignupScreen: React.FC<SignupScreenProps> = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.body}>
             <CarrotLogo style={styles.logo} />
@@ -42,14 +43,18 @@ const SignupScreen = () => {
                 </View>
             </View>
 
-            <Text style={styles.forgotPass}>By continuing you agree to our Terms of Service and Privacy Policy</Text>
+            <Text style={styles.forgotPass}>By continuing you agree to our <Text style={styles.txthighlight}> Terms of Service</Text>  and <Text style={styles.txthighlight}> Privacy Policy</Text> </Text>
             <View style={styles.btnContainer}>
                 <Button
                     title={"Sign Up"}
                 />
             </View>
             <Text style={styles.ctatxt}>
-                Already have an account? Login
+                Already have an account? {" "}
+                <Text style={styles.txthighlight} onPress={() => navigation.replace("Login")}>
+                    Login
+                </Text>
+
             </Text>
 
         </SafeAreaView>
@@ -88,7 +93,8 @@ const styles = StyleSheet.create({
     },
     forgotPass: {
         textAlign: "right",
-        marginBottom: 30
+        marginBottom: 30,
+        fontSize: 14
     },
 
     btnContainer: {
@@ -97,5 +103,8 @@ const styles = StyleSheet.create({
     ctatxt: {
         textAlign: "center",
         fontSize: 14
+    },
+    txthighlight: {
+        color: "#53B175"
     }
 })
