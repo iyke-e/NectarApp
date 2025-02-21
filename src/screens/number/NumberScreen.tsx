@@ -1,76 +1,55 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import PhoneInput from 'react-native-phone-number-input'
+import React, { useState } from 'react'
 import ArrowBack from "../../assets/svg/arrowback.svg"
 import RoundBtn from '../../components/button/RoundBtn'
 import { NumberScreenProps } from '../../types/navigation'
+import GradientBackground from '../../components/layout/GradientBackground'
+import AppText from '../../components/Text/AppText'
+import { InputField } from '../../components/input/InputField'
+import BackButton from '../../components/button/BackButton'
 
 
 const NumberScreen: React.FC<NumberScreenProps> = ({ navigation }) => {
+
+    const [phoneNo, setPhoneNo] = useState("")
+
+
     return (
-        <View style={styles.body}>
+        <GradientBackground style={{ paddingInline: 25 }}>
+            <BackButton onPress={() => navigation.goBack()} />
 
-            <ArrowBack hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }} style={styles.backBtn} onPress={() => navigation.goBack()} />
 
+            <View style={{ flex: 1 }}>
+                <AppText style={{ marginBottom: 28 }} type='header'>Enter your mobile number</AppText>
 
-            <View style={styles.main}>
-                <Text style={styles.mainTxt}>Enter your mobile number</Text>
+                <InputField label={"Mobile Number"}
+                    icon={<Image source={require("../../assets/Image/flag.png")} />}
+                    keyboardType='numeric'
+                    inputMode='numeric'
+                    value={phoneNo}
+                    onChangeText={(text) => setPhoneNo(text)}
 
-                <View style={styles.phoneNoContainer}>
-                    <Text style={styles.ptxt}>Mobile Number</Text>
-
-                    <PhoneInput
-                        textContainerStyle={{ backgroundColor: "#fff" }}
-                        defaultCode='NG'
-
-                    />
-
-                </View>
-
+                />
             </View>
-            <View style={styles.navigationContainer}>
+            <View style={{ alignItems: "flex-end" }}>
                 <RoundBtn onPress={() => navigation.navigate("Verification")} />
 
             </View>
-        </View>
+
+        </GradientBackground>
+
     )
 }
 
 export default NumberScreen
 
 const styles = StyleSheet.create({
-    body: {
-        flex: 1,
-        backgroundColor: "#fff",
-        paddingInline: 25
-    },
-    topImg: {
-        height: 233,
-        position: "absolute",
-        top: 0
-    },
-    backBtn: {
-        marginBlockStart: 25,
-        marginBlockEnd: 65
-    },
-    main: {
-        flex: 1,
 
-    },
-    mainTxt: {
-        fontSize: 26,
-        color: "#181725",
-        marginBottom: 28
-    },
-    ptxt: {
-        fontSize: 16,
-        color: "#7C7C7C"
-    },
-    phoneNoContainer: {
-        borderBottomWidth: 1,
-        borderBottomColor: "#E2E2E2",
-        marginBottom: 40
-    },
+
+
+
+
+
     navigationContainer: {
         alignItems: "flex-end"
     }

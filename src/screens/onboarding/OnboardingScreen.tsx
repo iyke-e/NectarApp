@@ -3,6 +3,7 @@ import React from 'react'
 import CarrotLogo from "../../assets/svg/carrotwhite.svg"
 import Button from '../../components/button/Button'
 import { OnboardingScreenProps } from '../../types/navigation'
+import { theme } from '../../components/theme/theme'
 
 const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
     return (
@@ -12,12 +13,12 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
             style={styles.body}
         >
             <CarrotLogo width={49} height={56} />
-            <Text style={styles.maintxt} >Welcome {"\n"} to our store</Text>
+            <Text style={styles.maintxt} >Welcome{"\n"}to our store</Text>
             <Text style={styles.ptxt}>Get your groceries as fast as one hour</Text>
             <View style={styles.btnContainer}>
                 <Button
                     title={"Get Started"}
-                    onPress={() => navigation.replace('Signin')}
+                    onPress={() => navigation.navigate('Signin')}
                 />
             </View>
         </ImageBackground>
@@ -39,20 +40,23 @@ const styles = StyleSheet.create({
     },
     maintxt: {
         fontSize: 48,
-        fontWeight: "semibold",
         textAlign: "center",
         color: "#fff",
         marginBlockStart: 35,
-        marginBlockEnd: 10
+        marginBlockEnd: 10,
+        fontFamily: "Gilroy-SemiBold",
+
 
     },
     ptxt: {
         fontSize: 16,
-        color: "#fff",
-        marginBottom: 30,
+        color: theme.color.grayishWhite,
+        marginBottom: 40,
+        fontFamily: theme.fontFamily.GilroyMedium,
+
     },
     btnContainer: {
-        marginBottom: 100,
+        marginBottom: 80,
         width: "100%",
         alignItems: "center",
     }

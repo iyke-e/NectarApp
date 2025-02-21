@@ -1,72 +1,59 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import { FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
 import { LocationScreenProps } from '../../types/navigation'
 import ArrowBack from "../../assets/svg/arrowback.svg"
 import Button from '../../components/button/Button'
 import Map from "../../assets/svg/map.svg"
-import { Picker } from '@react-native-picker/picker'
+import GradientBackground from '../../components/layout/GradientBackground'
+import BackButton from '../../components/button/BackButton'
+import AppText from '../../components/Text/AppText'
+import { InputField, SelectField } from '../../components/input/InputField'
+import ArrowDown from "../../assets/svg/selectArrow.svg"
+import { theme } from '../../components/theme/theme'
+
+const zones = ["North Central", "North West", "North East", "South West", "South East", "South South"
+];
+const areas = ["Port Harcourt GRA (Rivers)", "Diobu (Rivers)", "Warri (Delta)", "Uyo (Akwa Ibom)", "Calabar (Cross River)", "Benin City (Edo)", "Yenagoa (Bayelsa)", "Ikeja (Lagos)", "Victoria Island (Lagos)", "Lekki (Lagos)", "Ibadan North (Oyo)", "Akure (Ondo)", "Abeokuta (Ogun)", "Oshogbo (Osun)", "Ado-Ekiti (Ekiti)", "Maiduguri (Borno)",
+    "Bauchi City (Bauchi)", "Yola (Adamawa)", "Jalingo (Taraba)", "Gombe City (Gombe)", "Damaturu (Yobe)"]
+
 
 const LocationScreen: React.FC<LocationScreenProps> = ({ navigation }) => {
-    const zones = ["North Central", "North West", "North East", "South West", "South East", "South South"
-    ];
-    const areas = ["Port Harcourt GRA (Rivers)",
-        "Diobu (Rivers)",
-        "Warri (Delta)",
-        "Uyo (Akwa Ibom)",
-        "Calabar (Cross River)",
-        "Benin City (Edo)",
-        "Yenagoa (Bayelsa)",
-        "Ikeja (Lagos)",
-        "Victoria Island (Lagos)",
-        "Lekki (Lagos)",
-        "Ibadan North (Oyo)",
-        "Akure (Ondo)",
-        "Abeokuta (Ogun)",
-        "Oshogbo (Osun)",
-        "Ado-Ekiti (Ekiti)",
-        "Maiduguri (Borno)",
-        "Bauchi City (Bauchi)",
-        "Yola (Adamawa)",
-        "Jalingo (Taraba)",
-        "Gombe City (Gombe)",
-        "Damaturu (Yobe)"]
+
+    const [selectArea, setSelectArea] = useState("")
+    const [selectedZone, setSelectedZone] = useState("")
+
+
 
     return (
-        <View style={styles.body}>
-
-            <ArrowBack hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }} style={styles.backBtn} onPress={() => navigation.goBack()} />
-
+        <GradientBackground style={{ paddingInline: 25 }}>
+            <BackButton onPress={() => navigation.goBack()} />
 
             <View style={styles.hero}>
                 <Map style={styles.map} />
-
-                <Text style={styles.mainTxt}>
+                <AppText type='header' style={{ textAlign: "center" }}>
                     Select Your Location
-                </Text>
-                <Text style={styles.ptxt}>Switch on your location to stay in tune with
+                </AppText>
+                <AppText style={styles.ptxt}>
+                    Switch on your location to stay in tune with
                     what’s happening in your area
-                </Text>
-
-
+                </AppText>
             </View>
             <View style={styles.selectSection}>
-                <View style={styles.selectContainer}>
-                    <Text style={styles.label}>Your Zone</Text>
-                    <Picker style={styles.selectPicker}  >
-                        <Picker.Item label={"select your zone"} value={""} />
-                        {zones.map((zone) => (<Picker.Item label={zone} value={zone} />))}
+                <SelectField
+                    label='Your Zone'
+                    selected={selectedZone}
+                    options={zones}
+                    onSelectOption={(item: string) => { setSelectedZone(item) }}
 
-                    </Picker>
-                </View>
-                <View style={styles.selectContainer}>
-                    <Text style={styles.label}>Your Area</Text>
-                    <Picker style={styles.selectPicker} placeholder='Types of you area'>
-                        <Picker.Item label={"select your Area"} value={""} />
-                        {areas.map((area) => (<Picker.Item label={area} value={area} />))}
+                />
+                <SelectField
+                    label='Your Area'
+                    selected={selectArea}
+                    options={areas}
+                    onSelectOption={(item: string) => { setSelectArea(item) }}
 
+                />
 
-                    </Picker>
-                </View>
             </View>
             <View style={styles.btnContainer}>
                 <Button
@@ -74,27 +61,16 @@ const LocationScreen: React.FC<LocationScreenProps> = ({ navigation }) => {
                     onPress={() => navigation.navigate('Login')}
                 />
             </View>
-        </View>
+
+        </GradientBackground >
+
     )
 }
 
 export default LocationScreen
 
 const styles = StyleSheet.create({
-    body: {
-        flex: 1,
-        backgroundColor: "#fff",
-        paddingInline: 25
-    },
-    topImg: {
-        height: 233,
-        position: "absolute",
-        top: 0
-    },
-    backBtn: {
-        marginBlockStart: 25,
-        marginBlockEnd: 65
-    },
+
     btnContainer: {
         marginBottom: 100,
         width: "100%",
@@ -107,26 +83,13 @@ const styles = StyleSheet.create({
     map: {
         marginBottom: 40,
     },
-    mainTxt: {
-        fontSize: 26,
-        fontWeight: "semibold",
-        marginBottom: 15
 
-    },
     ptxt: {
-        color: "#7C7C7C",
-        fontSize: 16,
-        textAlign: "center"
+        textAlign: "center",
+        marginTop: 15
+    },
 
-    },
-    label: {
-        fontSize: 16,
-        fontWeight: "semibold",
-        color: "#7C7C7C"
-    },
-    selectPicker: {
-        color: "#181725"
-    },
+
     selectSection: {
         gap: 30,
         marginBottom: 40,
@@ -136,6 +99,8 @@ const styles = StyleSheet.create({
     selectContainer: {
         borderBottomWidth: 1,
         borderBlockColor: "#E2E2E2"
-    }
+    },
+
+
 
 })

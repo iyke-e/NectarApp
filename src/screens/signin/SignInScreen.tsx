@@ -1,36 +1,38 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Facebook from "../../assets/svg/facebookwhite.svg"
 import Google from "../../assets/svg/googlewhite.svg"
-import PhoneInput from "react-native-phone-number-input";
 import { SignInScreenProps } from '../../types/navigation'
+import AppText from '../../components/Text/AppText'
+import { theme } from '../../components/theme/theme'
 
 
 const SignInScreen: React.FC<SignInScreenProps> = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.body}>
+            <StatusBar backgroundColor="white" barStyle="dark-content" />
+
             <Image
                 source={require("../../assets/Image/groceryimg.png")}
                 style={styles.topimg}
                 resizeMode='cover'
             />
             <View style={styles.container} >
+                <AppText type='header'>
+                    Get your groceries{"\n"}with nectar
+                </AppText>
 
-                <Text style={styles.maintxt}>Get your groceries {"\n"} with nectar</Text>
 
                 <TouchableOpacity
                     style={styles.phoneNoInputContainer}
                     onPress={() => navigation.navigate("Number")}
                 >
-                    <PhoneInput
-                        textContainerStyle={{ backgroundColor: "#fff" }}
-                        disabled
-                        defaultCode='NG'
-                    />
+                    <Image source={require("../../assets/Image/flag.png")}></Image>
+                    <Text style={styles.number}>+880</Text>
                 </TouchableOpacity>
 
-                <Text style={styles.ptxt}>or connet with social media</Text>
+                <Text style={styles.ptxt}>Or connet with social media</Text>
 
                 <TouchableOpacity style={[styles.btn, styles.btn1]}>
                     <Text style={styles.btnTxt}>Continue with Google</Text>
@@ -80,13 +82,24 @@ const styles = StyleSheet.create({
     phoneNoInputContainer: {
         borderBottomWidth: 1,
         borderBottomColor: "#E2E2E2",
-        marginBottom: 40
+        marginBottom: 40,
+        flexDirection: "row",
+        gap: 12,
+        alignItems: "center",
+        paddingBlockStart: 30,
+        paddingBlockEnd: 15
     },
     ptxt: {
         textAlign: "center",
         color: "#828282",
         fontSize: 14,
-        marginBottom: 38
+        marginBottom: 38,
+        fontFamily: theme.fontFamily.GilroySemibold
+
+    },
+    number: {
+        fontFamily: theme.fontFamily.GilroyMedium,
+        fontSize: theme.fontSizes.medium
 
     },
     btn: {
@@ -121,6 +134,6 @@ const styles = StyleSheet.create({
     btnTxt: {
         fontSize: 18,
         color: "#fff",
-        fontWeight: "semibold"
+        fontFamily: theme.fontFamily.GilroySemibold
     }
 })

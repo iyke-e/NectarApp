@@ -1,42 +1,42 @@
-import { SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native'
-import React from 'react'
+import { SafeAreaView, StatusBar, StyleSheet, Text, TextInput, View } from 'react-native'
+import React, { useState } from 'react'
 import CarrotLogo from '../../assets/svg/orangecarrot.svg'
 import Button from '../../components/button/Button'
 import { Link } from '@react-navigation/native'
 import { LoginScreenProps } from '../../types/navigation'
+import GradientBackground from '../../components/layout/GradientBackground'
+import AppText from '../../components/Text/AppText'
+import { InputField } from '../../components/input/InputField'
 
 const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
-    return (
-        <SafeAreaView style={styles.body}>
-            <CarrotLogo style={styles.logo} />
+    const [formData, setFormData] = useState({})
 
-            <Text style={styles.mainTxt}>Login</Text>
-            <Text style={styles.ptxt}>Enter your Email and password</Text>
+    const handleChange = (text: string, type: string) => {
+
+    }
+
+    return (
+        <GradientBackground style={{ paddingInline: 25 }}>
+            <CarrotLogo style={styles.logo} />
+            <AppText type='header'>Login</AppText>
+            <AppText style={styles.ptxt} >Enter your Email and password</AppText>
 
             <View style={styles.form}>
-                <View>
-                    <Text>
-                        Email
-                    </Text>
-                    <TextInput
-                        style={styles.inputField}
-                        placeholder='Enter Email'
-                    />
-                </View>
-                <View>
-                    <Text>
-                        Password
-                    </Text>
-                    <TextInput
-                        placeholder="Enter password"
-                        style={styles.inputField}
-                        placeholderTextColor="#7C7C7C"
-                        secureTextEntry={true}
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        keyboardType="default"
-                    />
-                </View>
+                <InputField
+                    label='Email'
+                    type='email'
+                    onChangeText={(text) => handleChange(text, "email")}
+                    placeholder={"Enter Email"}
+
+                />
+                <InputField
+                    label='Password'
+                    type='password'
+                    placeholder='Enter passworkd'
+                    onChangeText={(text) => handleChange(text, "password")}
+
+                />
+
             </View>
 
             <Text style={styles.forgotPass}>Forgot Password?</Text>
@@ -54,16 +54,15 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 
             </Text>
 
-        </SafeAreaView>
+        </GradientBackground>
+
     )
 }
 
 export default LoginScreen
 
 const styles = StyleSheet.create({
-    body: {
-        paddingInline: 25
-    },
+
     logo: {
         marginInline: "auto",
         marginBlockStart: 30,
@@ -73,12 +72,10 @@ const styles = StyleSheet.create({
         fontSize: 26,
         fontWeight: "semibold",
         color: "#181725",
-        marginBottom: 10
     },
     ptxt: {
-        fontSize: 16,
-        color: "#7C7C7C",
-        marginBottom: 40
+        marginBottom: 40,
+        marginTop: 10
     },
     form: {
         gap: 30,
