@@ -1,12 +1,12 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import ArrowBack from "../../assets/svg/arrowback.svg"
-import RoundBtn from '../../components/button/RoundBtn'
-import { NumberScreenProps } from '../../types/navigation'
-import GradientBackground from '../../components/layout/GradientBackground'
-import AppText from '../../components/Text/AppText'
-import { InputField } from '../../components/input/InputField'
-import BackButton from '../../components/button/BackButton'
+import ArrowBack from "@assets/svg/arrowback.svg"
+import RoundBtn from '@components/button/RoundBtn'
+import { NumberScreenProps } from '../types/navigation'
+import GradientBackground from '@components/layout/GradientBackground'
+import AppText from '@components/Text/AppText'
+import { InputField } from '@components/input/InputField'
+import BackButton from '@components/button/BackButton'
 
 
 const NumberScreen: React.FC<NumberScreenProps> = ({ navigation }) => {
@@ -23,7 +23,7 @@ const NumberScreen: React.FC<NumberScreenProps> = ({ navigation }) => {
                 <AppText style={{ marginBottom: 28 }} type='header'>Enter your mobile number</AppText>
 
                 <InputField label={"Mobile Number"}
-                    icon={<Image source={require("../../assets/Image/flag.png")} />}
+                    icon={<Image source={require("@assets/Image/flag.png")} />}
                     keyboardType='numeric'
                     inputMode='numeric'
                     value={phoneNo}

@@ -1,14 +1,16 @@
 import { ImageBackground, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import CarrotLogo from "../../assets/svg/carrotwhite.svg"
-import Button from '../../components/button/Button'
-import { OnboardingScreenProps } from '../../types/navigation'
-import { theme } from '../../components/theme/theme'
+import CarrotLogo from "@assets/svg/carrotwhite.svg"
+import Button from '@components/button/Button'
+import { OnboardingScreenProps } from '../types/navigation'
+import { theme } from '@components/theme/theme'
+
+
 
 const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
     return (
         <ImageBackground
-            source={require("../../assets/Image/mainbgimg.png")}
+            source={require("@assets/Image/mainbgimg.png")}
             resizeMode='cover'
             style={styles.body}
         >
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
     maintxt: {
         fontSize: 48,
         textAlign: "center",
-        color: "#fff",
+        color: theme.color.white,
         marginBlockStart: 35,
         marginBlockEnd: 10,
         fontFamily: "Gilroy-SemiBold",

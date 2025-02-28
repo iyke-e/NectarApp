@@ -12,7 +12,7 @@ const GradientBackground: React.FC<GradientBackgroundProps> = ({ children, style
         <ImageBackground
 
             style={[styles.bg, style]}
-            source={require("../../assets/Image/gradientBg.png")}
+            source={require("@assets/Image/gradientBg.png")}
             resizeMode='cover'
             {...props}
         >
@@ -29,7 +29,6 @@ export default GradientBackground
 const styles = StyleSheet.create({
     bg: {
         flex: 1,
-        backgroundColor: "#fff",
 
     }
 })

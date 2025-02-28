@@ -1,11 +1,11 @@
 import { Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import Facebook from "../../assets/svg/facebookwhite.svg"
-import Google from "../../assets/svg/googlewhite.svg"
-import { SignInScreenProps } from '../../types/navigation'
-import AppText from '../../components/Text/AppText'
-import { theme } from '../../components/theme/theme'
+import Facebook from "@assets/svg/facebookwhite.svg"
+import Google from "@assets/svg/googlewhite.svg"
+import { SignInScreenProps } from '../types/navigation'
+import AppText from '@components/Text/AppText'
+import { theme } from '@components/theme/theme'
 
 
 const SignInScreen: React.FC<SignInScreenProps> = ({ navigation }) => {
@@ -14,7 +14,7 @@ const SignInScreen: React.FC<SignInScreenProps> = ({ navigation }) => {
             <StatusBar backgroundColor="white" barStyle="dark-content" />
 
             <Image
-                source={require("../../assets/Image/groceryimg.png")}
+                source={require("@assets/Image/groceryimg.png")}
                 style={styles.topimg}
                 resizeMode='cover'
             />
@@ -28,7 +28,7 @@ const SignInScreen: React.FC<SignInScreenProps> = ({ navigation }) => {
                     style={styles.phoneNoInputContainer}
                     onPress={() => navigation.navigate("Number")}
                 >
-                    <Image source={require("../../assets/Image/flag.png")}></Image>
+                    <Image source={require("@assets/Image/flag.png")}></Image>
                     <Text style={styles.number}>+880</Text>
                 </TouchableOpacity>
 

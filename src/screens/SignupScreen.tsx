@@ -1,13 +1,14 @@
 import { SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react'
-import CarrotLogo from '../../assets/svg/orangecarrot.svg'
-import Button from '../../components/button/Button'
-import { SignupScreenProps } from '../../types/navigation'
-import { InputField } from '../../components/input/InputField'
+import CarrotLogo from '@assets/svg/orangecarrot.svg'
+import Button from '@components/button/Button'
+import { SignupScreenProps } from "../types/navigation"
+import { InputField } from '@components/input/InputField'
+import GradientBackground from '@components/layout/GradientBackground'
 
 const SignupScreen: React.FC<SignupScreenProps> = ({ navigation }) => {
     return (
-        <SafeAreaView style={styles.body}>
+        <GradientBackground style={{ paddingInline: 25 }}>
             <CarrotLogo style={styles.logo} />
 
             <Text style={styles.mainTxt}>Sign Up</Text>
@@ -34,51 +35,7 @@ const SignupScreen: React.FC<SignupScreenProps> = ({ navigation }) => {
                 />
 
             </View>
-            {/* <View style={styles.form}>
-                <View>
-                    <Text>
-                        Username
-                    </Text>
-                    <TextInput
-                        style={styles.inputField}
-                        placeholder="Enter Username"
-                        placeholderTextColor="#7C7C7C"
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        keyboardType="default"
-                        textContentType="username"
-                    />
-                </View>
-                <View>
-                    <Text>
-                        Email
-                    </Text>
-                    <TextInput
-                        style={styles.inputField}
-                        placeholder="Enter Email"
-                        placeholderTextColor="#7C7C7C"
-                        keyboardType="email-address"
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        textContentType="emailAddress"
-                    />
 
-                </View>
-                <View>
-                    <Text>
-                        Password
-                    </Text>
-                    <TextInput
-                        placeholder="Enter password"
-                        style={styles.inputField}
-                        placeholderTextColor="#7C7C7C"
-                        secureTextEntry={true}
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        keyboardType="default"
-                    />
-                </View>
-            </View> */}
 
             <Text style={styles.forgotPass}>By continuing you agree to our <Text style={styles.txthighlight}> Terms of Service</Text>  and <Text style={styles.txthighlight}> Privacy Policy</Text> </Text>
             <View style={styles.btnContainer}>
@@ -96,7 +53,9 @@ const SignupScreen: React.FC<SignupScreenProps> = ({ navigation }) => {
 
             </Text>
 
-        </SafeAreaView>
+        </GradientBackground>
+
+
     )
 }
 
@@ -110,6 +69,7 @@ const styles = StyleSheet.create({
         marginInline: "auto",
         marginBlockStart: 50,
         marginBlockEnd: 100,
+
     },
     mainTxt: {
         fontSize: 26,

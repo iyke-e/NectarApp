@@ -1,12 +1,11 @@
-import { SafeAreaView, StatusBar, StyleSheet, Text, TextInput, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
-import CarrotLogo from '../../assets/svg/orangecarrot.svg'
-import Button from '../../components/button/Button'
-import { Link } from '@react-navigation/native'
-import { LoginScreenProps } from '../../types/navigation'
-import GradientBackground from '../../components/layout/GradientBackground'
-import AppText from '../../components/Text/AppText'
-import { InputField } from '../../components/input/InputField'
+import CarrotLogo from '@assets/svg/orangecarrot.svg'
+import Button from '@components/button/Button'
+import { LoginScreenProps } from '../types/navigation'
+import GradientBackground from '@components/layout/GradientBackground'
+import AppText from '@components/Text/AppText'
+import { InputField } from '@components/input/InputField'
 
 const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
     const [formData, setFormData] = useState({})
@@ -32,7 +31,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
                 <InputField
                     label='Password'
                     type='password'
-                    placeholder='Enter passworkd'
+                    placeholder='Enter password'
                     onChangeText={(text) => handleChange(text, "password")}
 
                 />

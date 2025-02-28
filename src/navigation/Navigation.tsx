@@ -2,20 +2,20 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import OnboardingScreen from '../screens/onboarding/OnboardingScreen'
-import SignInScreen from '../screens/signin/SignInScreen';
+import OnboardingScreen from '@screens/OnboardingScreen'
+import SignInScreen from '@screens/SignInScreen';
 import { RootStackParamList } from '../types/navigation';
-import NumberScreen from '../screens/number/NumberScreen';
-import VerificationScreen from '../screens/verification/VerificationScreen';
-import LocationScreen from '../screens/location/LocationScreen';
-import LoginScreen from '../screens/login/LoginScreen';
-import SignupScreen from '../screens/signup/SignupScreen';
+import NumberScreen from '@screens/NumberScreen';
+import VerificationScreen from '@screens/VerificationScreen';
+import LocationScreen from '@screens/LocationScreen';
+import LoginScreen from '@screens/LoginScreen';
+import SignupScreen from '@screens/SignupScreen';
 
 
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-const Navigator = () => {
+const Navigation = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator
@@ -60,6 +60,5 @@ const Navigator = () => {
     )
 }
 
-export default Navigator
+export default Navigation
 
-const styles = StyleSheet.create({})

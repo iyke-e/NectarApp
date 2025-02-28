@@ -1,12 +1,12 @@
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { VerficationScreenProps } from '../../types/navigation'
-import RoundBtn from '../../components/button/RoundBtn'
-import GradientBackground from '../../components/layout/GradientBackground'
-import BackButton from '../../components/button/BackButton'
-import AppText from '../../components/Text/AppText'
-import { InputField } from '../../components/input/InputField'
-import { theme } from '../../components/theme/theme'
+import { VerficationScreenProps } from '../types/navigation'
+import RoundBtn from '@components/button/RoundBtn'
+import GradientBackground from '@components/layout/GradientBackground'
+import BackButton from '@components/button/BackButton'
+import AppText from '@components/Text/AppText'
+import { InputField } from '@components/input/InputField'
+import { theme } from '@components/theme/theme'
 
 
 const VerificationScreen: React.FC<VerficationScreenProps> = ({ navigation }) => {

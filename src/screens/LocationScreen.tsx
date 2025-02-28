@@ -1,15 +1,12 @@
-import { FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet,  View } from 'react-native'
 import React, { useState } from 'react'
-import { LocationScreenProps } from '../../types/navigation'
-import ArrowBack from "../../assets/svg/arrowback.svg"
-import Button from '../../components/button/Button'
-import Map from "../../assets/svg/map.svg"
-import GradientBackground from '../../components/layout/GradientBackground'
-import BackButton from '../../components/button/BackButton'
-import AppText from '../../components/Text/AppText'
-import { InputField, SelectField } from '../../components/input/InputField'
-import ArrowDown from "../../assets/svg/selectArrow.svg"
-import { theme } from '../../components/theme/theme'
+import { LocationScreenProps } from '../types/navigation'
+import Button from '@components/button/Button'
+import Map from "@assets/svg/map.svg"
+import GradientBackground from '@components/layout/GradientBackground'
+import BackButton from '@components/button/BackButton'
+import AppText from '@components/Text/AppText'
+import { SelectField } from '@components/input/InputField'
 
 const zones = ["North Central", "North West", "North East", "South West", "South East", "South South"
 ];
