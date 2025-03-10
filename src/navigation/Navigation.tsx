@@ -84,30 +84,48 @@ const MainApp = () => {
             })}
         >
             <Tab.Screen
-                name='Shop' component={ShopNavigation}
-                listeners={({ navigation }) => ({
-                    tabPress: () => {
+                name="Shop"
+                component={ShopNavigation}
+                listeners={({ navigation, route }) => ({
+                    tabPress: (e) => {
+                        e.preventDefault();
                         navigation.reset({
                             index: 0,
-                            routes: [{ name: 'Shop' }]
-                        })
-                    }
-                })} />
+                            routes: [{ name: route.name }],
+                        });
+                    },
+                })}
+            />
+
             <Tab.Screen
                 name='Explore'
                 component={ExploreNavigation}
-                listeners={({ navigation }) => ({
-                    tabPress: () => {
+                listeners={({ navigation, route }) => ({
+                    tabPress: (e) => {
+                        e.preventDefault();
                         navigation.reset({
                             index: 0,
-                            routes: [{ name: 'Explore' }]
-                        })
-                    }
-
+                            routes: [{ name: route.name }],
+                        });
+                    },
                 })}
             />
-            <Tab.Screen name='Cart' component={CartNavigation} />
-            <Tab.Screen name='Favourite' component={FavouriteScreen} />
+            <Tab.Screen name='Cart'
+                component={CartNavigation}
+                listeners={({ navigation, route }) => ({
+                    tabPress: (e) => {
+                        e.preventDefault();
+                        navigation.reset({
+                            index: 0,
+                            routes: [{ name: route.name }],
+                        });
+                    },
+                })}
+            />
+            <Tab.Screen
+                name='Favourite'
+                component={FavouriteScreen}
+            />
             <Tab.Screen name='Account' component={AccountScreen} />
 
         </Tab.Navigator>
