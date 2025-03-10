@@ -1,20 +1,22 @@
 import { ImageBackground, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import CarrotLogo from "@assets/svg/carrotwhite.svg"
+import { Images, Icons } from "assets"
 import Button from '@components/button/Button'
-import { OnboardingScreenProps } from '../types/navigation'
+import { OnboardingScreenProps } from 'types/navigation'
 import { theme } from '@components/theme/theme'
+
+
 
 
 
 const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
     return (
         <ImageBackground
-            source={require("@assets/Image/mainbgimg.png")}
+            source={Images.MainBg}
             resizeMode='cover'
             style={styles.body}
         >
-            <CarrotLogo width={49} height={56} />
+            <Icons.WhiteCarrot width={49} height={56} />
             <Text style={styles.maintxt} >Welcome{"\n"}to our store</Text>
             <Text style={styles.ptxt}>Get your groceries as fast as one hour</Text>
             <View style={styles.btnContainer}>
@@ -61,6 +63,7 @@ const styles = StyleSheet.create({
         marginBottom: 80,
         width: "100%",
         alignItems: "center",
+        paddingHorizontal: 25
     }
 
 })

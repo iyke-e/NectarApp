@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { VerficationScreenProps } from '../types/navigation'
+import { VerficationScreenProps } from '../navigation/navigation'
 import RoundBtn from '@components/button/RoundBtn'
 import GradientBackground from '@components/layout/GradientBackground'
 import BackButton from '@components/button/BackButton'

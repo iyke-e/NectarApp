@@ -6,6 +6,7 @@ import ArrowDown from "../../assets/svg/selectArrow.svg"
 import Eye from "../../assets/svg/eyesopen.svg"
 import Eyeoff from "../../assets/svg/eyeclosed.svg"
 import Check from "../../assets/svg/checkgreen.svg"
+import { Icons } from 'assets'
 
 
 interface InputFieldProps extends TextInputProps {
@@ -70,15 +71,12 @@ interface selectFieldProps extends TextInputProps {
     label: string,
     selected: string,
     options: string[],
-    onSelectOption: any
-
-
+    onSelectOption: any,
+    isOpen: any,
+    setIsOpen: any
 }
 
-export const SelectField: React.FC<selectFieldProps> = ({ label, selected, options, onSelectOption }) => {
-
-    const [isOpen, setIsOpen] = useState(false);
-
+export const SelectField: React.FC<selectFieldProps> = ({ label, selected, options, onSelectOption, isOpen, setIsOpen }) => {
 
     return (
         <View style={styles.selectContainer}>
@@ -108,6 +106,26 @@ export const SelectField: React.FC<selectFieldProps> = ({ label, selected, optio
                 }
 
             </View>
+        </View>
+    )
+}
+
+
+interface SearchFieldProps extends TextInputProps {
+
+}
+
+
+export const SearchInput: React.FC<SearchFieldProps> = () => {
+    return (
+        <View style={styles.searchContainer}>
+            <Icons.Search />
+            <TextInput
+                placeholder='Search Store'
+                placeholderTextColor={theme.color.lightGray}
+            />
+
+
         </View>
     )
 }
@@ -179,5 +197,14 @@ const styles = StyleSheet.create({
         top: "50%",
         transform: [{ translateY: "-50%" }]
 
+    },
+    searchContainer: {
+        flexDirection: "row",
+        backgroundColor: "#F2F3F2",
+        borderRadius: 15,
+        alignItems: "center",
+        gap: 6,
+        paddingInline: 16,
+        paddingBlock: 12
     }
 })

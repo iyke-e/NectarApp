@@ -2,17 +2,14 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import CarrotLogo from '@assets/svg/orangecarrot.svg'
 import Button from '@components/button/Button'
-import { LoginScreenProps } from '../types/navigation'
+import { LoginScreenProps } from 'types/navigation'
 import GradientBackground from '@components/layout/GradientBackground'
 import AppText from '@components/Text/AppText'
 import { InputField } from '@components/input/InputField'
+import { useAuthContext } from '@hooks/useAuthContext'
 
 const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
-    const [formData, setFormData] = useState({})
-
-    const handleChange = (text: string, type: string) => {
-
-    }
+    const { setIsLoggedIn } = useAuthContext()
 
     return (
         <GradientBackground style={{ paddingInline: 25 }}>
@@ -24,7 +21,6 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
                 <InputField
                     label='Email'
                     type='email'
-                    onChangeText={(text) => handleChange(text, "email")}
                     placeholder={"Enter Email"}
 
                 />
@@ -32,7 +28,6 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
                     label='Password'
                     type='password'
                     placeholder='Enter password'
-                    onChangeText={(text) => handleChange(text, "password")}
 
                 />
 
@@ -42,6 +37,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
             <View style={styles.btnContainer}>
                 <Button
                     title={"Log in"}
+                    onPress={() => { setIsLoggedIn(true) }}
 
                 />
             </View>

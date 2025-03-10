@@ -5,7 +5,8 @@ export const theme = {
         green: "#53B175",
         white: "#ffffff",
         grayishWhite: "#FCFCFC",
-        border:  "#E2E2E2"
+        border: "#E2E2E2",
+        black: "#030303"
     }, 
 
     fontSizes: {
@@ -16,6 +17,7 @@ export const theme = {
     },
     fontFamily: {
         GilroySemibold: "Gilroy-SemiBold",
-        GilroyMedium: "Gilroy-Medium"
+        GilroyMedium: "Gilroy-Medium",
+        GilroyBold: "Gilroy-Bold"
     }
 }

@@ -2,11 +2,12 @@ import { SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react'
 import CarrotLogo from '@assets/svg/orangecarrot.svg'
 import Button from '@components/button/Button'
-import { SignupScreenProps } from "../types/navigation"
+import { SignupScreenProps } from "types/navigation"
 import { InputField } from '@components/input/InputField'
 import GradientBackground from '@components/layout/GradientBackground'
 
 const SignupScreen: React.FC<SignupScreenProps> = ({ navigation }) => {
+    
     return (
         <GradientBackground style={{ paddingInline: 25 }}>
             <CarrotLogo style={styles.logo} />
@@ -25,6 +26,7 @@ const SignupScreen: React.FC<SignupScreenProps> = ({ navigation }) => {
                     label='Email'
                     type='email'
                     placeholder='Enter Email'
+                    keyboardType={"email-address"}
 
                 />
                 <InputField

@@ -1,6 +1,6 @@
-import { StyleSheet,  View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React, { useState } from 'react'
-import { LocationScreenProps } from '../types/navigation'
+import { LocationScreenProps } from 'types/navigation'
 import Button from '@components/button/Button'
 import Map from "@assets/svg/map.svg"
 import GradientBackground from '@components/layout/GradientBackground'
@@ -10,6 +10,7 @@ import { SelectField } from '@components/input/InputField'
 
 const zones = ["North Central", "North West", "North East", "South West", "South East", "South South"
 ];
+
 const areas = ["Port Harcourt GRA (Rivers)", "Diobu (Rivers)", "Warri (Delta)", "Uyo (Akwa Ibom)", "Calabar (Cross River)", "Benin City (Edo)", "Yenagoa (Bayelsa)", "Ikeja (Lagos)", "Victoria Island (Lagos)", "Lekki (Lagos)", "Ibadan North (Oyo)", "Akure (Ondo)", "Abeokuta (Ogun)", "Oshogbo (Osun)", "Ado-Ekiti (Ekiti)", "Maiduguri (Borno)",
     "Bauchi City (Bauchi)", "Yola (Adamawa)", "Jalingo (Taraba)", "Gombe City (Gombe)", "Damaturu (Yobe)"]
 
@@ -18,6 +19,8 @@ const LocationScreen: React.FC<LocationScreenProps> = ({ navigation }) => {
 
     const [selectArea, setSelectArea] = useState("")
     const [selectedZone, setSelectedZone] = useState("")
+    const [isOpen, setIsOpen] = useState(false);
+
 
 
 
@@ -41,6 +44,10 @@ const LocationScreen: React.FC<LocationScreenProps> = ({ navigation }) => {
                     selected={selectedZone}
                     options={zones}
                     onSelectOption={(item: string) => { setSelectedZone(item) }}
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+
+
 
                 />
                 <SelectField
@@ -48,6 +55,8 @@ const LocationScreen: React.FC<LocationScreenProps> = ({ navigation }) => {
                     selected={selectArea}
                     options={areas}
                     onSelectOption={(item: string) => { setSelectArea(item) }}
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
 
                 />
 

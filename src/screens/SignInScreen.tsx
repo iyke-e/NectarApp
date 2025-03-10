@@ -3,7 +3,7 @@ import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Facebook from "@assets/svg/facebookwhite.svg"
 import Google from "@assets/svg/googlewhite.svg"
-import { SignInScreenProps } from '../types/navigation'
+import { SignInScreenProps } from '../navigation/navigation'
 import AppText from '@components/Text/AppText'
 import { theme } from '@components/theme/theme'
 
@@ -105,7 +105,6 @@ const styles = StyleSheet.create({
     btn: {
         width: "100%",
         height: 67,
-        maxWidth: 353,
         borderRadius: 19,
         justifyContent: "center",
         alignItems: "center",

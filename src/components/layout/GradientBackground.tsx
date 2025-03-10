@@ -1,4 +1,4 @@
-import { ImageBackground, StatusBar, StyleSheet, Text, View, ViewProps } from 'react-native'
+import { ImageBackground, StatusBar, StyleSheet, ViewProps } from 'react-native'
 import React, { ReactNode } from 'react'
 
 interface GradientBackgroundProps extends ViewProps {

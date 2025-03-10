@@ -2,7 +2,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import ArrowBack from "@assets/svg/arrowback.svg"
 import RoundBtn from '@components/button/RoundBtn'
-import { NumberScreenProps } from '../types/navigation'
+import { NumberScreenProps } from 'types/navigation'
 import GradientBackground from '@components/layout/GradientBackground'
 import AppText from '@components/Text/AppText'
 import { InputField } from '@components/input/InputField'

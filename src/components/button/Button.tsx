@@ -4,15 +4,16 @@ import { theme } from '../theme/theme';
 
 interface ButtonPros extends TouchableOpacityProps {
     title: String;
+    textStyle?: any
 }
 
-const Button: React.FC<ButtonPros> = ({ title, style, onPress }) => {
+const Button: React.FC<ButtonPros> = ({ title, style, onPress, textStyle }) => {
     return (
         <TouchableOpacity
             style={[styles.btn, style]}
             onPress={onPress}
         >
-            <Text style={styles.btnTxt}>{title}</Text>
+            <Text style={[styles.btnTxt, textStyle]}>{title}</Text>
         </TouchableOpacity>
     )
 }
@@ -24,7 +25,6 @@ const styles = StyleSheet.create({
         backgroundColor: theme.color.green,
         width: "100%",
         height: 67,
-        maxWidth: 353,
         borderRadius: 19,
         justifyContent: "center",
         alignItems: "center"
