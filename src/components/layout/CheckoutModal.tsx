@@ -79,7 +79,7 @@ const CheckoutModal = ({ totalPrice, isVisible, setIsVisible }: {
 
                         <AppText style={{ marginTop: 20, lineHeight: 25 }}>By placing an order you agree to our {" "} <AppText style={styles.texthighlight}>Terms</AppText> And <AppText style={styles.texthighlight}>Conditions</AppText> </AppText>
 
-                        <Button style={{ marginTop: 26 }} onPress={() => navigation.navigate('PlaceOrder')} title={"Place Order"} />
+                        <Button style={{ marginTop: 26 }} onPress={() => navigation.replace('PlaceOrder')} title={"Place Order"} />
 
                     </Animated.View>
 

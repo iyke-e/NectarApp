@@ -6,9 +6,12 @@ import AppText from '@components/Text/AppText'
 import Button from '@components/button/Button'
 import { theme } from '@components/theme/theme'
 import { useNavigation } from '@react-navigation/native'
+import { useCartContext } from '@hooks/useCartContext'
 
 const PlaceOrderScreen = () => {
     const navigation = useNavigation()
+    const { clearCart } = useCartContext()
+
     return (
         <GradientBackground style={styles.body}>
             <View style={styles.container}>
@@ -25,7 +28,7 @@ const PlaceOrderScreen = () => {
                 </View>
             </View>
             <Button style={{ marginBottom: 30 }} title={"Track Order"} />
-            <TouchableWithoutFeedback onPress={() => { navigation.getParent()?.navigate("Shop") }}>
+            <TouchableWithoutFeedback onPress={() => { navigation.getParent()?.navigate("Shop"), clearCart() }}>
                 <AppText style={styles.backHome}>
                     Back to Home
                 </AppText>
