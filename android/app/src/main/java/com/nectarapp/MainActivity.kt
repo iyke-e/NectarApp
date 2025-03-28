@@ -12,7 +12,7 @@ class MainActivity : ReactActivity() {
    * Show splash screen on app launch
    */
   override fun onCreate(savedInstanceState: Bundle?) {
-      SplashScreen.show(this) // Show Splash Screen
+      SplashScreen.show(this, true) // Show Splash Screen
       super.onCreate(savedInstanceState)
   }
 

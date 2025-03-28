@@ -1,20 +1,25 @@
 import './gesture-handler';
 
-import { Platform, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
-import Navigator from './src/navigator/Navigator';
+import Navigation from '@navigation/Navigation';
 import SplashScreen from 'react-native-splash-screen';
+import { CartProvider } from '@context/CartContext';
+import { AuthProvider } from '@context/AuthContext';
 
 const App = () => {
   useEffect(() => {
-    if (Platform.OS === 'android') {
-      SplashScreen.hide();
-    }
-
+    setTimeout(() => {
+      SplashScreen.hide()
+    }, 2000)
   }, [])
 
   return (
-    <Navigator />
+    <AuthProvider>
+      <CartProvider>
+        <Navigation />
+      </CartProvider>
+    </AuthProvider>
+
   )
 }
 
