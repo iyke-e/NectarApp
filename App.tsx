@@ -5,6 +5,8 @@ import Navigation from '@navigation/Navigation';
 import SplashScreen from 'react-native-splash-screen';
 import { CartProvider } from '@context/CartContext';
 import { AuthProvider } from '@context/AuthContext';
+import { Provider } from 'react-redux';
+import { store } from 'store';
 
 const App = () => {
   useEffect(() => {
@@ -14,11 +16,14 @@ const App = () => {
   }, [])
 
   return (
-    <AuthProvider>
-      <CartProvider>
-        <Navigation />
-      </CartProvider>
-    </AuthProvider>
+    <Provider store={store}>
+      <AuthProvider>
+        <CartProvider>
+          <Navigation />
+        </CartProvider>
+      </AuthProvider>
+    </Provider>
+
 
   )
 }
